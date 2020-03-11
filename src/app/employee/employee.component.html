@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Assignment3</title>
+</head>
+<body>
+	<form #form="ngForm" (ngSubmit)="onSubmit(form)">
+	  <label>First Name:</label><br>
+		<input type="text" name="fname" [(ngModel)]="employee.fname"><br><br>
+		<label>Last Name:</label><br>
+		<input type="text" name="lname" [(ngModel)]="employee.lname"><br><br>
+		<label>Email:</label><br>
+		<input type="email" name="Email" [(ngModel)]="employee.Email"><br><br>
+		<label>Contact Number:</label><br>
+		<input type="number" name="no" [(ngModel)]="employee.no"><br><br>
+		<label>Address:</label><br>
+		<textarea name="address" [(ngModel)]="employee.address"></textarea><br><br>
+		<label>UserName:</label><br>
+		<input type="text" name="uname" [(ngModel)]="employee.uname"><br><br>
+		<label>Password:</label><br>
+		<input type="password" name="pwd" [(ngModel)]="employee.pwd"><br><br>
+		<label>Gender:</label><br>
+		<div class="form-check">
+			<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" [(ngModel)]="employee.gender" value="male">
+			<label class="form-check-label" for="exampleRadios2">
+			  Male
+			</label>
+		  </div>
+		  <div class="form-check">
+			<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="female" [(ngModel)]="employee.gender">
+			<label class="form-check-label" for="exampleRadios3">
+			  Female
+			</label>
+		  </div><br>
+		<label>Qualification:</label><br>
+		<select id="p" name="qualification" [(ngModel)]="employee.qualification">
+      <option *ngFor="let type of qualification | async">
+        {{type}}
+      </option>
+		</select><br><br>
+		<label>Experience:</label><br>
+		<select id="q" name="experience" [(ngModel)]="employee.experience">
+      <option *ngFor="let type of experience | async">
+        {{type}}
+      </option>
+
+		</select><br><br>
+		<label>Coding Languages:</label><br>
+	  <div id="languages" *ngFor="let language of languages">
+      <input type="checkbox" name={{language}} id={{language}} ngModel ng-model-true-value="yes">
+      <label for={{language}} ng>{{language}}</label>
+    </div><br><br>
+    <button name="submit">Submit</button>
+</form>
+</body>
+</html>
+
